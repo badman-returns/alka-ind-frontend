@@ -5,8 +5,9 @@ class BaseService {
   getAuthorizationClient = () => axios.create(
     {
       headers: {
-        Authorization: `bearer ${sessionStorage.getItem('token')}`
-      }
+        Authorization: `bearer ${localStorage.getItem('token')}`
+      },
+      baseURL: process.env.REACT_APP_SERVER_BASE_URL,
     });
 
   login = (email, password) => {
