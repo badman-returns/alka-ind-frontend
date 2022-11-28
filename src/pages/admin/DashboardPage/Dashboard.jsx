@@ -10,24 +10,24 @@ import Typography from '@mui/material/Typography';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import { Navigate, Outlet, useNavigate } from 'react-router';
+import { Navigate, Outlet } from 'react-router';
 import { Link } from 'react-router-dom';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { Grid } from '@mui/material';
 
+
 const drawerWidth = 220;
 
 export default function Dashboard() {
-    const { user, logout, token } = useAuth();
+    const { logout, loggedInStatus} = useAuth();
+    const isLoggedIn = loggedInStatus();
 
-    function handleLogout(event){
+    function handleLogout(event) {
         event.preventDefault();
         logout();
     }
 
-    if (!user && !token || user===null && token===null) {
-        <Navigate to='/admin' />
-    } else
+    if (isLoggedIn) {
         return (
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
@@ -39,7 +39,7 @@ export default function Dashboard() {
                                     ALKA INDUSTRIES
                                 </Typography>
                             </Grid>
-                            <Grid item style={{cursor:'pointer'}}>
+                            <Grid item style={{ cursor: 'pointer' }}>
                                 <Box justifyContent='flex-end' onClick={handleLogout}>
                                     <Grid container flexDirection='column' alignItems='center'>
                                         <LogoutIcon />
@@ -119,4 +119,8 @@ export default function Dashboard() {
                 </Box>
             </Box>
         );
+    } 
+    return (
+        <Navigate to='/admin/login'/>
+    )
 }
