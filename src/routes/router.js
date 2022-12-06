@@ -9,8 +9,8 @@ import LatesProductPage from '../pages/admin/LatestProductPage/LatesProductPage'
 import ProductPage from '../pages/admin/ProductPage/ProductPage';
 import EnquiryPage from '../pages/admin/EnquiryPage/EnquiryPage';
 import PartnerPage from '../pages/admin/PartnerPage/PartnerPage';
-import AboutPageWrapper from '../pages/admin/AboutPage/AboutPageWrapper';
-import OrganisationPageWrapper from '../pages/admin/OrganisationPage/OrganisationPageWrapper';
+import BaseAboutPage from '../pages/admin/AboutPage/BaseAboutPage';
+import BaseOrganisationPage from '../pages/admin/OrganisationPage/BaseOrganisationPage';
 import React from 'react';
 
 export default function Router() {
@@ -22,8 +22,8 @@ export default function Router() {
                     <Route path='admin' element={<AdminOutlet />}>
                         <Route path='login' element={<LoginPage />} />
                         <Route path='dashboard' element={<DashboardPage />}>
-                            <Route path='about' element={<AboutPageWrapper />} />
-                            <Route path='organisation' element={<OrganisationPageWrapper />} />
+                            <Route path='about' element={<BaseAboutPage />} />
+                            <Route path='organisation' element={<BaseOrganisationPage />} />
                             <Route path='caraousel' element={<CaraouselPage />} />
                             <Route path='partners' element={<PartnerPage />} />
                             <Route path='latest-products' element={<LatesProductPage />} />
