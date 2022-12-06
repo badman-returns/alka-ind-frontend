@@ -42,4 +42,4 @@ function BaseOrganisationPage() {
     return orgInfo ? <OrganisatonPage organisationInfo={orgInfo} onFileUpload={onFileUpload} /> : null;
 }
 
-export default OrganisationPageWrapper
+export default BaseOrganisationPage

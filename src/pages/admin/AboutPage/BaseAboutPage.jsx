@@ -30,9 +30,10 @@ function BaseAboutPage() {
 
     useEffect(() => {
         fetchAboutData();
+        //eslint-disable-next-line
     }, []);
 
     return content ? <AboutPage handleOnChange={handleOnChange} handleSubmit={handleSubmit} content={content} /> : null
 }
 
-export default AboutPageWrapper;
+export default BaseAboutPage;
