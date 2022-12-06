@@ -1,11 +1,11 @@
 import React from "react";
 import {Routes, Route} from 'react-router';
-import HomePage from "./HomePage/HomePage";
+import BaseHomePage from "./HomePage/BaseHomePage";
 
 export default function RootPublicPage(){
     return (
         <Routes>
-            <Route path='/' element={<HomePage/>}/>
+            <Route path='/' element={<BaseHomePage/>}/>
         </Routes>
     )
 }
