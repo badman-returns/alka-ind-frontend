@@ -1,6 +1,6 @@
-import React, { useContext, createContext, useMemo, useState } from "react";
+import React, { useContext, createContext} from "react";
 import { useNavigate } from "react-router";
-import baseService from "../services/base.service";
+import {BaseLoginService, BaseLogoutService} from "../services/base.service";
 
 const AuthContext = createContext();
 
@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      let response = await baseService.login(email, password);
+      let response = await BaseLoginService(email, password);
       if (response.status === 200) {
         const token = response.headers['authorization'];
         const user = response.data;
@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
   }
 
   const logout = () => {
-    baseService.logout().then(() => {
+    BaseLogoutService().then(() => {
       console.log('Logout');
       navigate('/admin/login');
     }).catch((error) => {

@@ -21,7 +21,7 @@ const aboutSlice = createSlice({
 export const { storeAbout } = aboutSlice.actions;
 
 // Selector
-export const aboutSelector = state => state.about || {}
+export const aboutSelector = state => state.about.about || {};
 
 // Reducer
 export default aboutSlice.reducer;
@@ -33,6 +33,7 @@ export function fetchAbout() {
             const response = await getAbout();
             const about = response.ResponseData;
             dispatch(storeAbout(about));
+            // dispatch(dispatchLoader(false));
         } catch (error) {
             throw new Error(error);
         }
