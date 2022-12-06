@@ -18,7 +18,7 @@ export default function Router() {
         <React.Fragment>
             <AuthProvider>
                 <Routes>
-                    <Route path='*' element={<RootPublicPage />} />
+                    <Route path='/' element={<RootPublicPage />} />
                     <Route path='admin' element={<AdminOutlet />}>
                         <Route path='login' element={<LoginPage />} />
                         <Route path='dashboard' element={<DashboardPage />}>
