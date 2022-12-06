@@ -3,6 +3,7 @@ import { BrowserRouter, } from 'react-router-dom'
 import Router from './routes/router';
 import { ToastContainer } from 'react-toastify';
 import ApplicationLoader from './components/HOC/ApplicationLoader';
+import "swiper/css/bundle";
 
 
 function App() {
