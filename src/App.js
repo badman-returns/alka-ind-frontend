@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter, } from 'react-router-dom'
-import Router from './routes/routes';
+import Router from './routes/router';
 import { ToastContainer } from 'react-toastify';
+import ApplicationLoader from './components/HOC/ApplicationLoader';
 
 
 function App() {
@@ -24,4 +25,4 @@ function App() {
   );
 }
 
-export default App;
+export default ApplicationLoader(App);

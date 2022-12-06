@@ -5,9 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import configureAppStore from './store/store';
 import { Provider } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
 
-const store = configureAppStore();
+export const store = configureAppStore();
 
 ReactDOM.render(
   <React.StrictMode>
