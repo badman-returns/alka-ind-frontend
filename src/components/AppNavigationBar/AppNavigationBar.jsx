@@ -14,7 +14,7 @@ function AppNavigationBar({ orgInfo }) {
   return (
     <Fragment>
       <CssBaseline />
-      <AppBar component="nav" position='static' sx={{ backgroundColor: '#fcfcfc', }}>
+      <AppBar component="nav" position='sticky' sx={{ backgroundColor: '#fcfcfc', }}>
         <Toolbar className='toolbar'>
           <Grid container justifyContent='space-between' alignItems='center'>
             <Grid item>
@@ -27,22 +27,27 @@ function AppNavigationBar({ orgInfo }) {
               >
                 <MenuIcon />
               </IconButton>
-              <Box width='5rem' padding='1rem'>
-                <img src={orgInfo.fileURL} alt='logo' width='100%' />
-              </Box>
+              <Stack direction='row'>
+                <Box width='5rem' padding='1rem'>
+                  <img src={orgInfo.fileURL} alt='logo' width='100%' />
+                </Box>
+                <Box paddingTop='1.4rem'>  
+                  <Typography variant='h5' color='#000'><b>ALKA INDUSTRIES</b></Typography>
+                </Box>
+              </Stack>
             </Grid>
             <Grid item>
-            <Grid container justifyContent='center' alignItem='center'>
-              <Grid item>
-                <Stack direction='row' gap={6}>
-                  <Button sx={{ color: '#000' }}><Typography variant='subtitle1'>About</Typography></Button>
-                  <Button sx={{ color: '#000' }}><Typography variant='subtitle1'>Products</Typography></Button>
-                  <Button sx={{ color: '#000' }}><Typography variant='subtitle1'>Categories</Typography></Button>
-                  <Button sx={{ color: '#000' }}><Typography variant='subtitle1'>Enquiry</Typography></Button>
-                  <Button sx={{ color: '#000' }}><Typography variant='subtitle1'>Contact </Typography></Button>
-                </Stack>
+              <Grid container justifyContent='center' alignItem='center'>
+                <Grid item>
+                  <Stack direction='row' gap={6}>
+                    <Button sx={{ color: '#000' }}><Typography variant='subtitle1'>About</Typography></Button>
+                    <Button sx={{ color: '#000' }}><Typography variant='subtitle1'>Products</Typography></Button>
+                    <Button sx={{ color: '#000' }}><Typography variant='subtitle1'>Categories</Typography></Button>
+                    <Button sx={{ color: '#000' }}><Typography variant='subtitle1'>Enquiry</Typography></Button>
+                    <Button sx={{ color: '#000' }}><Typography variant='subtitle1'>Contact </Typography></Button>
+                  </Stack>
+                </Grid>
               </Grid>
-            </Grid>
             </Grid>
           </Grid>
         </Toolbar>
