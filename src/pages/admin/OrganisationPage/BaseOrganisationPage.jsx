@@ -14,22 +14,28 @@ function BaseOrganisationPage() {
         dispatch(fetchOrganisationInfo());
     }
 
+    const generateFormData = (name, phone, email, address, logo) => {
+        let formData = new FormData();
+        formData.append('name', name);
+        formData.append('phone', phone);
+        formData.append('email', email);
+        formData.append('address', address);
+        if(logo){
+            formData.append('logo', logo);
+        }
+        return formData;
+    }
+
     const onFileUpload = (event) => {
         if (event.target.files.length > 0) {
             const logo = event.target.files[0];
-
-            let formData = new FormData();
-            formData.append('name', orgInfo.name);
-            formData.append('phone', orgInfo.phone);
-            formData.append('email', orgInfo.email);
-            formData.append('address', orgInfo.address);
-            formData.append('logo', logo);
-            console.log(formData);
-            uploadLogo(formData);
+            let formData = generateFormData(orgInfo.name, orgInfo.phone, orgInfo.email, orgInfo.address, logo);
+            submitOrganisationData(formData);
         }
     };
 
-    const uploadLogo = async (formData) => {
+
+    const submitOrganisationData = async(formData) => {
         const response = await dispatch(postOrganisationInfo(formData));
         toast.success(response);
     }
@@ -39,7 +45,7 @@ function BaseOrganisationPage() {
         // eslint-disable-next-line
     }, []);
 
-    return orgInfo ? <OrganisatonPage organisationInfo={orgInfo} onFileUpload={onFileUpload} /> : null;
+    return orgInfo ? <OrganisatonPage organisationInfo={orgInfo} onFileUpload={onFileUpload} submitOrganisationData={submitOrganisationData} generateFormData={generateFormData} /> : null;
 }
 
 export default BaseOrganisationPage
