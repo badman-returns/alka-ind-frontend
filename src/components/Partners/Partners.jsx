@@ -8,7 +8,7 @@ function Partners() {
             <Stack direction='column' gap={4}>
                 <Stack direction="column" gap={2} alignItems='center'>
                     <Box paddingTop='4rem'>
-                        <Typography variant='h4'> PARTNERS</Typography>
+                        <Typography variant='h4'> OUR PARTNERS</Typography>
                     </Box>
                 </Stack>
 
