@@ -12,7 +12,7 @@ function CategoryNavigationBar() {
   return (
     <Fragment>
       <CssBaseline />
-      <AppBar component="nav" position='static' sx={{ backgroundColor: '#000' }}>
+      <AppBar component="nav" position='sticky' sx={{ backgroundColor: '#000', top:'4.8rem' }}>
         <Toolbar className='toolbar'>
          <Grid container justifyContent='center' alignItem='center'>
               <Grid item>
