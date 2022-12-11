@@ -1,9 +1,26 @@
 import { Box, Grid, Typography, Button } from '@mui/material'
 import { Stack } from '@mui/system';
-import React from 'react'
+import BaseDialog from '../../../components/BaseDialog/BaseDialog';
+import EditDetailsForm from './components/EditDetailsForm';
+import React, { useState } from 'react'
 
-function OrganisatonPage({ organisationInfo, onFileUpload }) {
+function OrganisatonPage({ organisationInfo, onFileUpload, submitOrganisationData, generateFormData }) {
   const { name, phone, email, address, fileURL } = organisationInfo;
+  const [enableEdit, setEnableEdit] = useState(false);
+
+  const enableAndDisableForm = () => {
+    setEnableEdit(!enableEdit);
+  }
+
+  const renderEditDetails = () => {
+    return <EditDetailsForm
+      organisationInfo={organisationInfo}
+      handleClose={enableAndDisableForm}
+      generateFormData={generateFormData}
+      submitOrganisationData={submitOrganisationData}
+    />
+  }
+
   return (
     <React.Fragment>
       <Grid container flexDirection='column' gap={2}>
@@ -48,12 +65,12 @@ function OrganisatonPage({ organisationInfo, onFileUpload }) {
                     <Stack direction='columns' gap={2}>
                       <Box alignItems='center'>
                         <Button variant='contained' component='label'>
-                        <input hidden accept='image/*' type='file' onChange={onFileUpload}></input>
+                          <input hidden accept='image/*' type='file' onChange={onFileUpload}></input>
                           Edit Logo
                         </Button>
                       </Box>
                       <Box alignItems='center'>
-                        <Button variant='contained'>Edit Details</Button>
+                        <Button variant='contained' onClick={enableAndDisableForm}>Edit Details</Button>
                       </Box>
                     </Stack>
                   </Grid>
@@ -63,6 +80,10 @@ function OrganisatonPage({ organisationInfo, onFileUpload }) {
           </Grid>
         </Grid>
       </Grid>
+
+      {/* Dialog */}
+      <BaseDialog renderContent={renderEditDetails} handleClose={enableAndDisableForm} open={enableEdit} />
+
     </React.Fragment>
   )
 }
