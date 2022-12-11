@@ -6,18 +6,19 @@ import Slider from "../../../components/Slider/Slider";
 import CategoryNavigationBar from "../../../components/CategoryNavigationBar/CategoryNavigationBar";
 import LatestProduct from "../../../components/LatestProduct/LatestProduct";
 import Partners from "../../../components/Partners/Partners";
-
+import Footer from "../../../components/Footer/Footer";
 
 export default function HomePage({ orgInfo }) {
     return (
         <Fragment>
             <Stack direction='column'>
-                <Header orgInfo={orgInfo}/>
-                <AppNavigationBar orgInfo={orgInfo}/>
-                <CategoryNavigationBar/>
-                <Slider/>
-                <LatestProduct/>
-                <Partners/>
+                <Header orgInfo={orgInfo} />
+                <AppNavigationBar orgInfo={orgInfo} />
+                <CategoryNavigationBar />
+                <Slider />
+                <LatestProduct />
+                <Partners />
+                <Footer />
             </Stack>
         </Fragment>
     )
