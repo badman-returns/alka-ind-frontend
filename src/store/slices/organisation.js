@@ -3,8 +3,6 @@ import { getOrganisationInfo, updateOrganisationInfo } from '../../services/orga
 
 const initialState = {
     orgInfo: null,
-    loading: false,
-    error: false,
 };
 
 const organisationSlice = createSlice({
