@@ -14,8 +14,8 @@ export const AuthProvider = ({ children }) => {
         const token = response.headers['authorization'];
         const user = response.data;
         if (token && user) {
-          window.localStorage.setItem('token', token);
-          window.localStorage.setItem('user', JSON.stringify(user));
+         sessionStorage.setItem('token', token);
+         sessionStorage.setItem('user', JSON.stringify(user));
           navigate('/admin/dashboard')
         }
       }
@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
   }
 
   const loggedInStatus = () => {
-    const token = localStorage.getItem('token');
+    const token = sessionStorage.getItem('token');
     if(token && token !== null){
       return true;
     }

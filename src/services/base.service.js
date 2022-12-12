@@ -5,7 +5,7 @@ import {store} from '../index';
 const getAuthorizationClient = axios.create(
   {
     headers: {
-      Authorization: `bearer ${localStorage.getItem('token')}`
+      Authorization: `bearer ${sessionStorage.getItem('token')}`
     },
     baseURL: process.env.REACT_APP_SERVER_BASE_URL,
   });
@@ -42,8 +42,8 @@ const login = (email, password) => {
 
 const logout = () => {
   return new Promise((resolve, reject) => {
-    if (localStorage.getItem('token') != null) {
-      localStorage.clear();
+    if (sessionStorage.getItem('token') != null) {
+      sessionStorage.clear();
       return resolve(true);
     }
     return reject(true);
