@@ -7,7 +7,7 @@ import AboutPage from './AboutPage';
 
 function BaseAboutPage() {
     const dispatch = useDispatch();
-    const { content } = useSelector(aboutSelector);
+    const { about } = useSelector(aboutSelector);
     const [richText, setRichText] = useState('');
 
     const fetchAboutData = () => {
@@ -33,7 +33,7 @@ function BaseAboutPage() {
         //eslint-disable-next-line
     }, []);
 
-    return content ? <AboutPage handleOnChange={handleOnChange} handleSubmit={handleSubmit} content={content} /> : null
+    return about ? <AboutPage handleOnChange={handleOnChange} handleSubmit={handleSubmit} content={about.content} /> : null
 }
 
 export default BaseAboutPage;
