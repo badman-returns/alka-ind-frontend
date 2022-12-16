@@ -2,7 +2,7 @@ import axios from "axios";
 import { dispatchLoader } from "../store/slices/loader";
 import {store} from '../index';
 
-const getAuthorizationClient = axios.create(
+const axiosInstance = axios.create(
   {
     headers: {
       Authorization: `bearer ${sessionStorage.getItem('token')}`
@@ -10,19 +10,20 @@ const getAuthorizationClient = axios.create(
     baseURL: process.env.REACT_APP_SERVER_BASE_URL,
   });
 
-  getAuthorizationClient.interceptors.request.use((request) => {
+  axiosInstance.interceptors.request.use((request) => {
     store.dispatch(dispatchLoader(true));
     return request;
   }, (error) => {
     return Promise.reject(error);
   });
 
-  getAuthorizationClient.interceptors.response.use((response) => {
+  axiosInstance.interceptors.response.use((response) => {
     if(response.status=== 200){
       store.dispatch(dispatchLoader(false));
     }
     return response;
   }, (error) => {
+    store.dispatch(dispatchLoader(false));
     return Promise.reject(error);
   });
 
@@ -52,10 +53,10 @@ const logout = () => {
 
 const BaseLoginService = login;
 const BaseLogoutService = logout;
-const GetAuthorizationClient = getAuthorizationClient;
+const AxiosInstance = axiosInstance;
 
 export {
   BaseLoginService,
   BaseLogoutService,
-  GetAuthorizationClient,
+  AxiosInstance,
 };
