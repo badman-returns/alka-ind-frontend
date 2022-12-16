@@ -8,14 +8,14 @@ import LatestProduct from "../../../components/LatestProduct/LatestProduct";
 import Partners from "../../../components/Partners/Partners";
 import Footer from "../../../components/Footer/Footer";
 
-export default function HomePage({ orgInfo }) {
+export default function HomePage({ orgInfo, carousels }) {
     return (
         <Fragment>
             <Stack direction='column'>
                 <Header orgInfo={orgInfo} />
                 <AppNavigationBar orgInfo={orgInfo} />
                 <CategoryNavigationBar />
-                <Slider />
+                <Slider carousels={carousels}/>
                 <LatestProduct />
                 <Partners />
                 <Footer />
