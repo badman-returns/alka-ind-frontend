@@ -21,7 +21,7 @@ const aboutSlice = createSlice({
 export const { storeAbout } = aboutSlice.actions;
 
 // Selector
-export const aboutSelector = state => state.about.about || {};
+export const aboutSelector = state => state.about || {};
 
 // Reducer
 export default aboutSlice.reducer;
