@@ -5,9 +5,7 @@ function ImageViewer({ source }) {
     return (
         <React.Fragment>
             <DialogContent>
-                <Box>
-                    <img src={source} alt='carousel-preview' />
-                </Box>
+                 <img src={source} alt='carousel-preview' />
             </DialogContent>
         </React.Fragment>
     )
