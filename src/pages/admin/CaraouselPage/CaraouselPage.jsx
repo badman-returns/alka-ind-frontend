@@ -11,7 +11,7 @@ import Paper from '@mui/material/Paper';
 import ImageViewer from '../../../components/ImageViewer/ImageViewer';
 import BaseDialog from '../../../components/BaseDialog/BaseDialog';
 
-function CaraouselPage({ carousels, onFileUpload }) {
+function CaraouselPage({ carousels, onFileUpload, removeCarousel }) {
   const [currentFileURL, setCurrentFileURL] = useState(null);
   const [enablePreview, setEnablePreview] = useState(false);
 
@@ -72,7 +72,7 @@ function CaraouselPage({ carousels, onFileUpload }) {
                       <TableCell align="center">
                         <Stack direction='row' gap={1} sx={{ marginLeft: '5rem' }}>
                           <Button variant='contained' color='primary' sx={{ color: '#fff' }} onClick={() => onPreview(carousel.fileURL)}>Preview</Button>
-                          <Button variant='contained' color='danger' sx={{ color: '#fff' }}>Delete</Button>
+                          <Button variant='contained' color='danger' sx={{ color: '#fff' }} onClick={() => removeCarousel(carousel.id)}>Delete</Button>
                         </Stack>
                       </TableCell>
                     </TableRow>
@@ -84,7 +84,7 @@ function CaraouselPage({ carousels, onFileUpload }) {
         </Grid>
       </Grid>
       {/* Dialog */}
-      <BaseDialog renderContent={renderImagePreview} handleClose={closePreview} open={enablePreview} />
+      <BaseDialog renderContent={renderImagePreview} handleClose={closePreview} open={enablePreview} fullWidth={true}/>
     </React.Fragment>
 
   )

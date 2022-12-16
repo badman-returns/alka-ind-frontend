@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import CaraouselPage from './CaraouselPage';
-import { addCarousel, fetchCarousels, carouselSelector } from '../../../store/slices/carousel';
+import { addCarousel, fetchCarousels, carouselSelector, deleteCarouselById } from '../../../store/slices/carousel';
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
@@ -25,14 +25,18 @@ function BaseCarouselPage() {
 
   const getCarousels = () => {
     dispatch(fetchCarousels());
-    console.log(carousels);
-    }
+  }
+
+  const removeCarousel = async(id) => {
+      const response = await dispatch(deleteCarouselById(id));
+      toast.success(response);
+  }
 
   useEffect(() => {
     getCarousels();
   }, [])
   return (
-    <CaraouselPage onFileUpload={onFileUpload} carousels={carousels} />
+    <CaraouselPage onFileUpload={onFileUpload} carousels={carousels} removeCarousel={removeCarousel} />
   )
 }
 

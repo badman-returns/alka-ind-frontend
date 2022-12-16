@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCarousels, insertCarousel } from '../../services/carousel.service';
+import { getCarousels, insertCarousel, deleteCarousel } from '../../services/carousel.service';
 
 const initialState = {
     carousels: null,
@@ -42,6 +42,22 @@ export function addCarousel(payload){
     return async dispatch => {
         try {
             const response = await insertCarousel(payload);
+            if(response.status === 200){
+                dispatch(fetchCarousels());
+                return response.data.ResponseMessage;
+            } else {
+                return response;
+            }
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
+}
+
+export function deleteCarouselById(id){
+    return async dispatch => {
+        try {
+            const response = await deleteCarousel(id);
             if(response.status === 200){
                 dispatch(fetchCarousels());
                 return response.data.ResponseMessage;
