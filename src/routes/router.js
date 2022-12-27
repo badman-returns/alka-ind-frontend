@@ -8,7 +8,7 @@ import BaseCarouselPage from '../pages/admin/CaraouselPage/BaseCarouselPage';
 import LatesProductPage from '../pages/admin/LatestProductPage/LatesProductPage';
 import ProductPage from '../pages/admin/ProductPage/ProductPage';
 import EnquiryPage from '../pages/admin/EnquiryPage/EnquiryPage';
-import PartnerPage from '../pages/admin/PartnerPage/PartnerPage';
+import BasePartnerPage from '../pages/admin/PartnerPage/BasePartnerPage';
 import BaseAboutPage from '../pages/admin/AboutPage/BaseAboutPage';
 import BaseOrganisationPage from '../pages/admin/OrganisationPage/BaseOrganisationPage';
 import React from 'react';
@@ -25,7 +25,7 @@ export default function Router() {
                             <Route path='about' element={<BaseAboutPage />} />
                             <Route path='organisation' element={<BaseOrganisationPage />} />
                             <Route path='caraousel' element={<BaseCarouselPage />} />
-                            <Route path='partners' element={<PartnerPage />} />
+                            <Route path='partners' element={<BasePartnerPage />} />
                             <Route path='latest-products' element={<LatesProductPage />} />
                             <Route path='products' element={<ProductPage />} />
                             <Route path='enquiry' element={<EnquiryPage />} />

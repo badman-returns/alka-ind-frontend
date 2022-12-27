@@ -4,7 +4,7 @@ import ProductCard from '../ProductCard/ProductCard'
 
 function Partners() {
     return (
-        <Box width="100%" height="60vh">
+        <Box width="100%" height="70vh">
             <Stack direction='column' gap={4}>
                 <Stack direction="column" gap={2} alignItems='center'>
                     <Box paddingTop='4rem'>
@@ -12,7 +12,7 @@ function Partners() {
                     </Box>
                 </Stack>
 
-                <Stack direction='row' gap={2} flexWrap={1} justifyContent='center'>
+                <Stack direction='row' gap={3} flexWrap='wrap' justifyContent='center'>
                     <ProductCard/>
                     <ProductCard/>
                     <ProductCard/>

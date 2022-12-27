@@ -70,7 +70,7 @@ function CaraouselPage({ carousels, onFileUpload, removeCarousel }) {
                       <TableCell align="center">{carousel.createdBy}</TableCell>
                       <TableCell align="center">{carousel.createdOn}</TableCell>
                       <TableCell align="center">
-                        <Stack direction='row' gap={1} sx={{ marginLeft: '5rem' }}>
+                        <Stack direction='row' gap={1} justifyContent='center'>
                           <Button variant='contained' color='primary' sx={{ color: '#fff' }} onClick={() => onPreview(carousel.fileURL)}>Preview</Button>
                           <Button variant='contained' color='danger' sx={{ color: '#fff' }} onClick={() => removeCarousel(carousel.id)}>Delete</Button>
                         </Stack>
