@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Copyright from '../../../components/Copyright/Copyright';
+import Copyright from '../../../components/copyright/copyright';
 import { useAuth } from '../../../utils/useAuth';
 import { Navigate } from 'react-router-dom'
 

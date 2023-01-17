@@ -2,10 +2,12 @@ import axios from "axios";
 import { dispatchLoader } from "../store/slices/loader";
 import {store} from '../index';
 
+const token = sessionStorage.getItem('token');
+
 const axiosInstance = axios.create(
   {
     headers: {
-      Authorization: `bearer ${sessionStorage.getItem('token')}`
+      Authorization: `bearer ${token}`
     },
     baseURL: process.env.REACT_APP_SERVER_BASE_URL,
   });
