@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 import { CssBaseline, Grid, Stack } from '@mui/material';
+import {Link} from 'react-router-dom'
 import './AppNavigationBar.css';
 
 
@@ -14,7 +15,7 @@ function AppNavigationBar({ orgInfo }) {
   return (
     <Fragment>
       <CssBaseline />
-      <AppBar component="nav" position='sticky' sx={{ backgroundColor: '#fcfcfc', }}>
+      <AppBar component="nav" position='sticky' sx={{ backgroundColor: '#fcfcfc', top:'2.4rem' }}>
         <Toolbar className='toolbar'>
           <Grid container justifyContent='space-between' alignItems='center'>
             <Grid item>
@@ -39,12 +40,23 @@ function AppNavigationBar({ orgInfo }) {
             <Grid item>
               <Grid container justifyContent='center' alignItem='center'>
                 <Grid item>
-                  <Stack direction='row' gap={6}>
+                  <Stack direction='row' gap={6} >
+                    <Link to={'/about'}  style={{ textDecoration:'none' }}>
                     <Button sx={{ color: '#000' }}><Typography variant='subtitle1'>About</Typography></Button>
+                    </Link>
+                    <Link to={'/products'} style={{ textDecoration:'none' }}>
                     <Button sx={{ color: '#000' }}><Typography variant='subtitle1'>Products</Typography></Button>
+                    </Link>
+                    <Link style={{ textDecoration:'none' }}>
                     <Button sx={{ color: '#000' }}><Typography variant='subtitle1'>Categories</Typography></Button>
+                    </Link>
+                    <Link to={'/enquiry'} style={{ textDecoration:'none' }}>
                     <Button sx={{ color: '#000' }}><Typography variant='subtitle1'>Enquiry</Typography></Button>
+                    </Link>
+                    <Link to={'/contact'} style={{ textDecoration:'none' }}>
                     <Button sx={{ color: '#000' }}><Typography variant='subtitle1'>Contact </Typography></Button>
+                    </Link>
+
                   </Stack>
                 </Grid>
               </Grid>
