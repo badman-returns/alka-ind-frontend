@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router';
 import AdminOutlet from '../pages/admin/outlet';
-import RootPublicPage from '../pages/public';
 import LoginPage from '../pages/public/LoginPage/LoginPage';
 import DashboardPage from '../pages/admin/DashboardPage/Dashboard';
 import { AuthProvider } from '../utils/useAuth';
@@ -12,13 +11,23 @@ import BasePartnerPage from '../pages/admin/PartnerPage/BasePartnerPage';
 import BaseAboutPage from '../pages/admin/AboutPage/BaseAboutPage';
 import BaseOrganisationPage from '../pages/admin/OrganisationPage/BaseOrganisationPage';
 import React from 'react';
+import BasePage from '../pages/public/BasePage/BasePage';
+import About from '../components/About/About';
+import Product from '../components/Product/Product';
+import Enquiry from '../components/Enquiry/Enquiry';
+import Contact from '../components/Contact/Contact';
 
 export default function Router() {
     return (
         <React.Fragment>
             <AuthProvider>
                 <Routes>
-                    <Route path='/' element={<RootPublicPage />} />
+                    <Route path='/' element={<BasePage />}>
+                        <Route path='about' element={<About />} />
+                        <Route path='products' element={<Product />} />
+                        <Route path='enquiry' element={<Enquiry />} />
+                        <Route path='contact' element={<Contact />} />
+                    </Route>
                     <Route path='admin' element={<AdminOutlet />}>
                         <Route path='login' element={<LoginPage />} />
                         <Route path='dashboard' element={<DashboardPage />}>
