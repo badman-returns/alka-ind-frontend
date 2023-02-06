@@ -1,33 +1,34 @@
 import axios from "axios";
 import { dispatchLoader } from "../store/slices/loader";
-import {store} from '../index';
-
-const token = sessionStorage.getItem('token');
+import { store } from '../index';
 
 const axiosInstance = axios.create(
   {
     headers: {
-      Authorization: `bearer ${token}`
+      Authorization: `bearer ${sessionStorage.getItem('token')}`
     },
     baseURL: process.env.REACT_APP_SERVER_BASE_URL,
   });
 
-  axiosInstance.interceptors.request.use((request) => {
-    store.dispatch(dispatchLoader(true));
-    return request;
-  }, (error) => {
-    return Promise.reject(error);
-  });
+axiosInstance.interceptors.request.use((request) => {
+  if(request.headers['Authorization'] === 'bearer null'){
+    request.headers['Authorization'] = `bearer ${sessionStorage.getItem('token')}`
+  }
+  store.dispatch(dispatchLoader(true));
+  return request;
+}, (error) => {
+  return Promise.reject(error);
+});
 
-  axiosInstance.interceptors.response.use((response) => {
-    if(response.status=== 200){
-      store.dispatch(dispatchLoader(false));
-    }
-    return response;
-  }, (error) => {
+axiosInstance.interceptors.response.use((response) => {
+  if (response.status === 200) {
     store.dispatch(dispatchLoader(false));
-    return Promise.reject(error);
-  });
+  }
+  return response;
+}, (error) => {
+  store.dispatch(dispatchLoader(false));
+  return Promise.reject(error);
+});
 
 
 const login = (email, password) => {

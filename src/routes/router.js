@@ -17,6 +17,7 @@ import Product from "../components/Product/Product";
 import Enquiry from "../components/Enquiry/Enquiry";
 import Contact from "../components/Contact/Contact";
 import BaseCategoryPage from "../pages/admin/CategoryPage/BaseCategoryPage";
+import BaseProductPage from "../pages/admin/ProductPage/BaseProductPage";
 
 export default function Router() {
   return (
@@ -38,7 +39,7 @@ export default function Router() {
               <Route path="partners" element={<BasePartnerPage />} />
               <Route path="category" element={<BaseCategoryPage />} />
               <Route path="latest-products" element={<LatesProductPage />} />
-              <Route path="products" element={<ProductPage />} />
+              <Route path="products" element={<BaseProductPage />} />
               <Route path="enquiry" element={<EnquiryPage />} />
             </Route>
           </Route>

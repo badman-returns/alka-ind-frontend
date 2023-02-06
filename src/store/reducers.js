@@ -5,6 +5,7 @@ import loader from "./slices/loader";
 import carousel from "./slices/carousel";
 import partner from "./slices/partner";
 import category from "./slices/category";
+import product from "./slices/product";
 
 export const rootReducer = combineReducers({
   about,
@@ -13,4 +14,5 @@ export const rootReducer = combineReducers({
   carousel,
   partner,
   category,
+  product,
 });

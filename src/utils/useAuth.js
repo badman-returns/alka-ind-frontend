@@ -1,6 +1,6 @@
-import React, { useContext, createContext} from "react";
+import React, { useContext, createContext } from "react";
 import { useNavigate } from "react-router";
-import {BaseLoginService, BaseLogoutService} from "../services/base.service";
+import { BaseLoginService, BaseLogoutService } from "../services/base.service";
 
 const AuthContext = createContext();
 
@@ -14,8 +14,8 @@ export const AuthProvider = ({ children }) => {
         const token = response.headers['authorization'];
         const user = response.data;
         if (token && user) {
-         sessionStorage.setItem('token', token);
-         sessionStorage.setItem('user', JSON.stringify(user));
+          sessionStorage.setItem('token', token);
+          sessionStorage.setItem('user', JSON.stringify(user));
           navigate('/admin/dashboard')
         }
       }
@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
 
   const loggedInStatus = () => {
     const token = sessionStorage.getItem('token');
-    if(token && token !== null){
+    if (token && token !== null) {
       return true;
     }
   }
