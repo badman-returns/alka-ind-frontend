@@ -89,6 +89,13 @@ export default function Dashboard() {
                                     </ListItemButton>
                                 </ListItem>
                             </Link>
+                            <Link to='/admin/dashboard/category' style={{ textDecoration: 'none', color: 'GrayText' }}>
+                                <ListItem>
+                                    <ListItemButton>
+                                        <ListItemText primary='Category' />
+                                    </ListItemButton>
+                                </ListItem>
+                            </Link>
                             <Link to='/admin/dashboard/latest-products' style={{ textDecoration: 'none', color: 'GrayText' }}>
                                 <ListItem>
                                     <ListItemButton>
